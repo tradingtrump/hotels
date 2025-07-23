@@ -1,23 +1,101 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JS Booking</title>
+    <title>Guangzhou Hotel Booking</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/x-dummy.css">
-    <script src="assets//1-booking.js"></script>
+    <script src="assets/1-booking.js" defer></script>
   </head>
   <body>
+    <h2>Hotel Booking</h2>
     <form id="bookForm" onsubmit="return book();">
+      <!-- Guest Info -->
       <label for="name">Name</label>
-      <input type="text" name="name" required>
+      <input type="text" name="name" id="name" required>
 
       <label for="email">Email</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" id="email" required>
 
-      <label for="date">Date</label>
-      <input type="date" name="date" required>
+      <label for="phone">Phone</label>
+      <input type="tel" name="phone" id="phone" pattern="[0-9]{11}" placeholder="e.g., 13800000000" required>
 
-      <input type="submit" value="Go!" disabled id="bookGo">
+      <!-- Dates -->
+      <label for="checkin_date">Check-in Date</label>
+      <input type="date" name="checkin_date" id="checkin_date" required>
+
+      <label for="checkout_date">Check-out Date</label>
+      <input type="date" name="checkout_date" id="checkout_date" required>
+
+      <!-- Hotel Selection -->
+      <label for="hotelSelect">Hotel</label>
+      <select id="hotelSelect" name="hotel_id" required>
+        <option value="">Select a hotel...</option>
+      </select>
+
+      <!-- Room Selection -->
+      <label for="roomSelect">Room Type</label>
+      <select id="roomSelect" name="room_type" required>
+        <option value="">Select a room...</option>
+      </select>
+
+      <!-- Number of Rooms -->
+      <label for="rooms_booked">Number of Rooms</label>
+      <input type="number" name="rooms_booked" id="rooms_booked" min="1" value="1" required>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Book Now" id="bookGo" disabled>
     </form>
+
+    <!-- Error Display -->
+    <div id="errorMsg" style="color:red; margin-top:10px;"></div>
+
+    <h3 class="section-title">Our Hotels</h3>
+    <div class="hotel-gallery">
+      <div class="hotel-card">
+        <img src="assets/hotel1.png" alt="The Garden Hotel">
+        <div class="hotel-info">
+          <h3>The Garden Hotel</h3>
+          <p>Elegant stay in the city center with 500+ positive reviews.</p>
+        </div>
+      </div>
+    
+      <div class="hotel-card">
+        <img src="assets/hotel2.png" alt="White Swan Hotel">
+        <div class="hotel-info">
+          <h3>White Swan Hotel</h3>
+          <p>Historic riverside property offering iconic luxury.</p>
+        </div>
+      </div>
+    
+      <div class="hotel-card">
+        <img src="assets/hotel3.png" alt="The Ritz-Carlton">
+        <div class="hotel-info">
+          <h3>The Ritz-Carlton</h3>
+          <p>Unmatched elegance near Canton Tower with city views.</p>
+        </div>
+      </div>
+    
+
+    <div class="slogan">
+      <p>Welcome to Guangzhou's Best Hotels! Book Now and Enjoy Exclusive Deals!</p>
+    </div>
+
+    
+    <div class="hotel-card">
+      <img src="assets/hotel4.png" alt="Four Seasons Hotel">
+      <div class="hotel-info">
+        <h3>Four Seasons Hotel</h3>
+        <p>Located in IFC building with breathtaking skyline views.</p>
+      </div>
+    </div>
+  
+    <div class="hotel-card">
+      <img src="assets/hotel5.png" alt="Grand Hyatt">
+      <div class="hotel-info">
+        <h3>Grand Hyatt</h3>
+        <p>Modern and upscale choice for business travelers.</p>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
